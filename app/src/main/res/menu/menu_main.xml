@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_trangchu"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Trang chủ" />
+
+    <item
+        android:id="@+id/menu_sanpham"
+        android:icon="@drawable/ic_baseline_smartphone_24"
+        android:title="Sản phẩm"
+        android:visible="true" />
+
+
+    <item
+        android:id="@+id/menu_dangxuat"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="Đăng xuất" />
+    <item
+        android:icon="@drawable/ic_baseline_call_24"
+        android:title="Liên hệ"
+        android:visible="true">
+        <menu>
+
+            <item
+                android:id="@+id/menu_facebook"
+                android:icon="@drawable/icon_facebook"
+                android:title="Facebook" />
+        </menu>
+    </item>
+</menu>

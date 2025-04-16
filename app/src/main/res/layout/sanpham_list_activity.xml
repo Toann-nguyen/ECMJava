@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/boder_item"
+    android:layout_marginRight="10dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/img_sanpham"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:text="ten san pham"
+                    android:textColor="#0E0E0E"
+                    android:textSize="15dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_tensanpham"/>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:text="gia san pham"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:textColor="#F44336"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:id="@+id/tv_giasanpham"/>
+            </LinearLayout>
+        </FrameLayout>
+</LinearLayout>
