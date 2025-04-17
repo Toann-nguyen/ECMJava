@@ -193,17 +193,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_cart:
-                Intent intent = new Intent(getApplicationContext(), GioHangActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.menu_admin:
-                Intent intent1 = new Intent(getApplicationContext(), HoadonActivity.class);
-                startActivity(intent1);
-                break;
+        if (item.getItemId() == R.id.menu_cart) {
+            Intent intent = new Intent(getApplicationContext(), GioHangActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (item.getItemId() == R.id.menu_admin) {
+            Intent intent1 = new Intent(getApplicationContext(), HoadonActivity.class);
+            startActivity(intent1);
+            return true;
         }
-        if (item.getItemId() == android.R.id.home) {
+         if (item.getItemId() == android.R.id.home) {
             if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
@@ -215,26 +214,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.menu_trangchu:
-                break;
-            case R.id.menu_sanpham:
-                Intent intent = new Intent(MainActivity.this, LoaispActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.menu_facebook:
-                String url = "https://www.facebook.com/druc.66";
-                Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(myIntent);
-                break;
-
-            case R.id.menu_dangxuat:
-                Intent intent9 = new Intent(MainActivity.this, DangNhapActivity.class);
-                startActivity(intent9);
-                break;
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_trangchu) {
+            finish();
+        } else if (itemId == R.id.menu_sanpham) {
+            Intent intent = new Intent(MainActivity.this, LoaispActivity.class);
+            startActivity(intent);
+        } else if (itemId == R.id.menu_facebook) {
+            String url = "https://www.facebook.com/druc.66";
+            Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(myIntent);
+        } else if (itemId == R.id.menu_dangxuat) {
+            Intent intent9 = new Intent(MainActivity.this, DangNhapActivity.class);
+            startActivity(intent9);
+            finish();
         }
-        drawerLayout.closeDrawer(GravityCompat.START);
+
         return false;
     }
 }

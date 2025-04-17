@@ -154,14 +154,12 @@ DonHangBaseAdapter donHangBaseAdapter;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_homedh:
-                Intent intent = new Intent(HoadonActivity.this,MainActivity.class);
-                intent.putExtra("a","abc");
-                startActivity(intent);
-                finish();
-                break;
-
+        int id = item.getItemId();
+        if (id == R.id.menu_admin){
+            Intent intent = new Intent(HoadonActivity.this,MainActivity.class);
+            intent.putExtra("a","abc");
+            startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

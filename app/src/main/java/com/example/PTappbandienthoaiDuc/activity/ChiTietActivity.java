@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,8 +36,8 @@ public class ChiTietActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chi_tiet);
         GetIdDonHang();
-        GetDataCT();
         anhxa();
+        GetDataCT();
     }
 
     private void anhxa() {
@@ -55,6 +56,10 @@ public class ChiTietActivity extends AppCompatActivity {
     }
 
     private void GetDataCT() {
+        if (iddonhang == -1) {
+            CheckConnection.ShowToast_Short(getApplicationContext(), "Không tìm thấy thông tin đơn hàng");
+            return;
+        }
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Server.DuongDanchitiet, new Response.Listener<String>() {
             @Override
@@ -103,8 +108,13 @@ public class ChiTietActivity extends AppCompatActivity {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+              //  HashMap<String, String> param = new HashMap<String, String>();
+             //   param.put("madonhang", String.valueOf(iddonhang));
+             //   return param;
                 HashMap<String, String> param = new HashMap<String, String>();
-                param.put("madonhang", String.valueOf(iddonhang));
+                // Kiểm tra trước khi sử dụng iddonhang
+                String madonhangValue = (iddonhang != -1) ? String.valueOf(iddonhang) : "";
+                param.put("madonhang", madonhangValue);
                 return param;
             }
         };
@@ -113,5 +123,9 @@ public class ChiTietActivity extends AppCompatActivity {
 
     private void GetIdDonHang() {
         iddonhang = getIntent().getIntExtra("iddonhang", -1);
+        if (iddonhang == -1) {
+            // Log lỗi hoặc hiển thị thông báo
+            Log.e("ChiTietActivity", "Không tìm thấy mã đơn hàng hợp lệ");
+        }
     }
 }

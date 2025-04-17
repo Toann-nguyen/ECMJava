@@ -214,10 +214,10 @@ public class samsung extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.menu_cart:
-                Intent intent = new Intent(getApplicationContext(), GioHangActivity.class);
-                startActivity(intent);
+        int id = item.getItemId();
+        if (id == R.id.menu_cart) {
+            Intent intent = new Intent(getApplicationContext(), GioHangActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
